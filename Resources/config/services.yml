@@ -31,3 +31,33 @@ services:
         class: %msi_cmf.manager.class%
         arguments: [ Msi\Bundle\PaintBundle\Entity\Artwork ]
         parent: msi_cmf.manager
+
+    # Slider
+    msi_paint_slider_admin:
+        class: Msi\Bundle\PaintBundle\Admin\SliderAdmin
+        arguments: [ @msi_paint.slider_manager ]
+        parent: msi_cmf.admin
+        tags:
+            - { name: msi.admin }
+        calls:
+            - [ setChild, [ @msi_paint_slide_admin ] ]
+
+    msi_paint.slider_manager:
+        class: %msi_cmf.manager.class%
+        arguments: [ Msi\Bundle\PaintBundle\Entity\Slider ]
+        parent: msi_cmf.manager
+
+    # Slide
+    msi_paint_slide_admin:
+        class: Msi\Bundle\PaintBundle\Admin\SlideAdmin
+        arguments: [ @msi_paint.slide_manager ]
+        parent: msi_cmf.admin
+        tags:
+            - { name: msi.admin }
+        calls:
+            - [ setParent, [ @msi_paint_slider_admin ] ]
+
+    msi_paint.slide_manager:
+        class: %msi_cmf.manager.class%
+        arguments: [ Msi\Bundle\PaintBundle\Entity\Slide ]
+        parent: msi_cmf.manager

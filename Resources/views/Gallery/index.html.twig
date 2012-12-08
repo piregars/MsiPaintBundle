@@ -7,7 +7,7 @@
     {% endif %}
     <div class="span4">
         <div class="thumbnail" style="margin-bottom:20px;">
-            <a href="{{ path('msi_paint_artwork_index', {'slug': gallery.translation.slug}) }}"><img src="http://placehold.it/300x200" alt=""></a>
+            <a href="{{ path('msi_paint_artwork_index', {'slug': gallery.translation.slug}) }}"><img src="{{ gallery.artworks.first.pathname('t_') }}" alt=""></a>
             <div class="caption" style="padding-bottom:5px;">
                 <strong>{{ gallery.translation.name }} <span class="muted">(3)</span></strong>
             </div>

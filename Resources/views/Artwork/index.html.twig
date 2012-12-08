@@ -7,7 +7,7 @@
     {% endif %}
     <div class="span4">
         <div class="thumbnail" style="margin-bottom:20px;">
-            <a href="{{ artwork.pathname }}"><img src="{{ artwork.pathname('t_') }}" alt=""></a>
+            <a class="group1" href="{{ artwork.pathname }}"><img src="{{ artwork.pathname('t_') }}" alt=""></a>
             {% if artwork.title or artwork.size or artwork.medium or artwork.year or artwork.price %}
             <div class="caption" style="padding-bottom:5px;">
                 {% if artwork.title %}
@@ -36,3 +36,16 @@
 {% endblock content %}
 
 {% block title %}{{ gallery }}{% endblock title %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/msipaint/vendor/colorbox/example2/colorbox.css') }}">
+{% endblock css %}
+
+{% block js %}
+{{ parent() }}
+<script src="{{ asset('bundles/msipaint/vendor/colorbox/colorbox/jquery.colorbox-min.js') }}"></script>
+<script>
+    $('.group1').colorbox({rel:'group1'});
+</script>
+{% endblock js %}

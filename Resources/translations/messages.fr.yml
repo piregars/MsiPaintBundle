@@ -1,3 +1,5 @@
 entity:
     Gallery: Galerie|Galeries
     Artwork: Oeuvre|Oeuvres
+    Slider: Slider|Sliders
+    Slide: Slide|Slides
