@@ -1,0 +1,38 @@
+{% extends 'MsiPaintBundle::layout.html.twig' %}
+
+{% block content %}
+{% for artwork in artworks %}
+    {% if loop.index == 1 or loop.index % 3 == 1 %}
+        <div class="row-fluid">
+    {% endif %}
+    <div class="span4">
+        <div class="thumbnail" style="margin-bottom:20px;">
+            <a href="{{ artwork.pathname }}"><img src="{{ artwork.pathname('t_') }}" alt=""></a>
+            {% if artwork.title or artwork.size or artwork.medium or artwork.year or artwork.price %}
+            <div class="caption" style="padding-bottom:5px;">
+                {% if artwork.title %}
+                    <strong>{{ artwork.title }}</strong><br>
+                {% endif %}
+                {% if artwork.size %}
+                    {{ artwork.size }}<br>
+                {% endif %}
+                {% if artwork.medium %}
+                    {{ artwork.medium }}<br>
+                {% endif %}
+                {% if artwork.year %}
+                    {{ artwork.year }}<br>
+                {% endif %}
+                {% if artwork.price %}
+                    {{ artwork.price }}
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if loop.index == artworks|length or loop.index % 3 == 0 %}
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock content %}
+
+{% block title %}{{ gallery }}{% endblock title %}

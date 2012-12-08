@@ -1,0 +1,54 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    /*background: #FF7A00;*/
+    background: #fff;
+    color: #06266F;
+}
+
+a {
+
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.box {
+    padding: 0 15px;
+    border: 5px solid #06266F;
+    margin-bottom: 20px;
+}
+
+.box:before,
+.box:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.menu {
+    margin: 0;
+}
+
+.menu > li > a {
+    display: block;
+    padding: 10px 0;
+    font-size: 17.5px;
+}

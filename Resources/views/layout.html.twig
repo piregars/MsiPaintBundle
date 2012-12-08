@@ -1,0 +1,57 @@
+{% extends 'MsiCmfBundle:Page:layout.html.twig' %}
+
+{% block brand %}
+Pauline Veilleux
+{% endblock brand %}
+
+{% block css %}
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('bundles/msipaint/css/style.css') }}">
+{{ parent() }}
+{% endblock css %}
+
+{% block js %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+{{ parent() }}
+{% endblock js %}
+
+{% block meta %}
+<meta name="google-translate-customization" content="31da8c0182f794e8-078d56aae1482be3-g72d6a9ca00524621-17"></meta>
+{% endblock meta %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="offset3 span12">
+            <h1>{{ block('brand') }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span3">
+            {{ msi_block_render('menu_top', page) }}
+            <div id="menu" class="box">
+                {{ knp_menu_render('MsiPaintBundle:MenuBuilder:mainMenu', {'allow_safe_labels': true, 'depth': 3, 'currentClass': 'active'}) }}
+            </div>
+            <div id="google_translate_element"></div>
+            {{ msi_block_render('menu_bottom', page) }}
+        </div>
+        <div class="span9">
+            <div id="content" class="box">
+                <h2>{{ block('title') }}</h2>
+                {{ block('page_content') }}
+            </div>
+            <div id="footer" class="box">
+                &copy; {{ 'now'|date('Y') }} {{ block('brand') }}. Tous droits réservés.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
