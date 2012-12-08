@@ -1,36 +1,18 @@
-<div class="container">
-    <div id="slider-model-a" class="box">
-        <div class="row-fluid" style="margin-top:10px;">
-            <div class="span9">
-                <ul class="unstyled slider">
-                    {% for slide in slider.slides %}
-                    <li id="li{{ loop.index }}"{% if loop.index == 1 %} class="active"{% else %} style="display:none;"{% endif %}>
-                        <img src="{{ slide.pathname }}" alt="" class="img-rounded">
-                        <div class="overlay"{% if loop.index != 1 %} style="display:none;"{% endif %}>
-                            <div class="number">0{{ loop.index }}</div>
-                            <div class="text">
-                                <h4>{{ slide.translation.title }}</h4>
-                                {{ slide.translation.description }}
-                            </div>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="span3">
-                <div class="carousel-wrap">
-                    <ul class="unstyled carousel">
-                        {% for slide in slider.slides %}
-                        <li data-id="{{ loop.index }}"{% if loop.index == 1 %} class="active"{% endif %}>
-                            <a href="#">
-                                <span>0{{ loop.index }}</span>
-                                <img src="{{ slide.pathname('t_') }}" alt="" class="img-rounded">
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div id="slider-model-a">
+    <ul class="unstyled slider">
+        {% for slide in slider.slides %}
+        <li>
+            <img class="img-polaroid" src="{{ slide.pathname }}" alt="">
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="carousel-wrap">
+        <ul class="unstyled carousel">
+            {% for slide in slider.slides %}
+            <li>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>

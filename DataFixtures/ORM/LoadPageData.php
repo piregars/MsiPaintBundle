@@ -25,7 +25,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $page = new Page();
         $page
             ->setHome(true)
-            ->setTemplate('MsiPaintBundle::layout.html.twig')
+            ->setTemplate('VeilleuxAppBundle::layout.html.twig')
             ->createTranslations('Msi\Bundle\CmfBundle\Entity\PageTranslation', array('fr'));
         ;
         $this->addReference('page1', $page);
@@ -36,7 +36,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $page = new Page();
         $page
             ->setHome(false)
-            ->setTemplate('MsiPaintBundle::layout.html.twig')
+            ->setTemplate('VeilleuxAppBundle::layout.html.twig')
             ->createTranslations('Msi\Bundle\CmfBundle\Entity\PageTranslation', array('fr'));
         ;
         $this->addReference('page2', $page);
@@ -47,7 +47,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $page = new Page();
         $page
             ->setHome(false)
-            ->setTemplate('MsiPaintBundle::layout.html.twig')
+            ->setTemplate('VeilleuxAppBundle::layout.html.twig')
             ->setRoute('msi_paint_gallery_index')
             ->createTranslations('Msi\Bundle\CmfBundle\Entity\PageTranslation', array('fr'));
         ;
@@ -59,7 +59,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $page = new Page();
         $page
             ->setHome(false)
-            ->setTemplate('MsiPaintBundle::layout.html.twig')
+            ->setTemplate('VeilleuxAppBundle::layout.html.twig')
             ->createTranslations('Msi\Bundle\CmfBundle\Entity\PageTranslation', array('fr'));
         ;
         $this->addReference('page4', $page);
@@ -70,7 +70,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $page = new Page();
         $page
             ->setHome(false)
-            ->setTemplate('MsiPaintBundle::layout.html.twig')
+            ->setTemplate('VeilleuxAppBundle::layout.html.twig')
             ->createTranslations('Msi\Bundle\CmfBundle\Entity\PageTranslation', array('fr'));
         ;
         $this->addReference('page5', $page);
@@ -81,7 +81,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $page = new Page();
         $page
             ->setHome(false)
-            ->setTemplate('MsiPaintBundle::layout.html.twig')
+            ->setTemplate('VeilleuxAppBundle::layout.html.twig')
             ->createTranslations('Msi\Bundle\CmfBundle\Entity\PageTranslation', array('fr'));
         ;
         $this->addReference('page6', $page);

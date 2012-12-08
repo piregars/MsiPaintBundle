@@ -1,4 +1,5 @@
-{% extends 'MsiPaintBundle::layout.html.twig' %}
+{% set template = page.template ?: 'MsiPaintBundle::layout.html.twig' %}
+{% extends template %}
 
 {% block content %}
 {% for gallery in galleries %}

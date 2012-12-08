@@ -74,6 +74,14 @@ class LoadMenuData extends AbstractFixture implements ContainerAwareInterface, O
         $menu->getTranslation()->setPublished(true)->setName('Contact');
         $manager->persist($menu);
 
+        // convertisseur
+        $menu = new Menu();
+        $menu->createTranslations($transClass, array('fr'));
+        $menu->setParent($root);
+        $menu->setTargetBlank(true);
+        $menu->getTranslation()->setPublished(true)->setName('Convertisseur')->setRoute('http://www.google.com/finance/converter');
+        $manager->persist($menu);
+
         // FLUSH
         $manager->flush();
     }
