@@ -11,6 +11,7 @@ class GalleryTranslationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('published')
             ->add('name')
         ;
     }

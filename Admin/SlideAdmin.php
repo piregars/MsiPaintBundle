@@ -21,6 +21,7 @@ class SlideAdmin extends Admin
     {
         $builder
             ->add('file', 'file')
+            ->add('published')
         ;
     }
 }
