@@ -2,6 +2,12 @@ parameters:
 #    msi_paint.example.class: Msi\Bundle\PaintBundle\Example
 
 services:
+    # Event Listener
+    msi_paint.request_listener:
+        class: Msi\Bundle\PaintBundle\EventListener\RequestListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest}
+
     # Gallery
     msi_paint_gallery_admin:
         class: Msi\Bundle\PaintBundle\Admin\GalleryAdmin

@@ -27,6 +27,12 @@ class SliderAdmin extends Admin
     {
         $builder
             ->add('name')
+            ->add('pauseTime', 'integer', array('attr' => array(
+                'data-help' => 'En millième de seconde. Par défaut : 3000.',
+            )))
+            ->add('slideSpeed', 'integer', array('attr' => array(
+                'data-help' => 'En millième de seconde. Par défaut : 400.',
+            )))
         ;
     }
 }

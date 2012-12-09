@@ -41,7 +41,7 @@ class Artwork implements FileInterface
     protected $year;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $price;
 

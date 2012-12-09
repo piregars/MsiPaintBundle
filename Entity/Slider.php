@@ -25,6 +25,16 @@ class Slider
     protected $name;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $pauseTime;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $slideSpeed;
+
+    /**
      * @ORM\OneToMany(targetEntity="Slide", mappedBy="slider")
      */
     protected $slides;
@@ -44,6 +54,8 @@ class Slider
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
         $this->slides = new ArrayCollection();
+        $this->pauseTime = 3000;
+        $this->slideSpeed = 400;
     }
 
     /**
@@ -52,6 +64,30 @@ class Slider
     public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
+    }
+
+    public function getSlideSpeed()
+    {
+        return $this->slideSpeed;
+    }
+
+    public function setSlideSpeed($slideSpeed)
+    {
+        $this->slideSpeed = $slideSpeed;
+
+        return $this;
+    }
+
+    public function getPauseTime()
+    {
+        return $this->pauseTime;
+    }
+
+    public function setPauseTime($pauseTime)
+    {
+        $this->pauseTime = $pauseTime;
+
+        return $this;
     }
 
     public function getCreatedAt()

@@ -3,3 +3,6 @@ entity:
     Artwork: Oeuvre|Oeuvres
     Slider: Slider|Sliders
     Slide: Slide|Slides
+
+Pausetime: Temps de pause
+Slidespeed: Vitesse de transition

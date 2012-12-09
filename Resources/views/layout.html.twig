@@ -19,20 +19,6 @@
     }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-{# Google Analytics #}
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36922705-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 {% endblock js %}
 
 {% block meta %}
@@ -42,26 +28,32 @@
 {% block body %}
 <div class="container">
     <div class="row">
+        {# Header #}
         <div class="offset3 span12">
             <h1>{{ block('brand') }} - {{ block('slogan') }}</h1>
         </div>
     </div>
     <div class="row">
+        {# Sidebar #}
         <div class="span3">
-            {{ msi_block_render('menu_top', page) }}
-            <div id="menu" class="box">
+            {{ msi_block_render('sidebar_top', page) }}
+            <div id="sidebar">
                 {{ knp_menu_render('MsiPaintBundle:MenuBuilder:mainMenu', {'allow_safe_labels': true, 'depth': 3, 'currentClass': 'active'}) }}
+                <p>{{ app.request.session.get('count')|number_format }} visites</p>
+                <div id="google_translate_element" style="margin-bottom:10px;"></div>
             </div>
-            <div id="google_translate_element"></div>
-            {{ msi_block_render('menu_bottom', page) }}
+            {{ msi_block_render('sidebar_bottom', page) }}
         </div>
+        {# Content #}
         <div class="span9">
-            <div id="content" class="box">
+            <div id="content">
                 {% if page.home != true %}<h2>{{ block('title') }}</h2>{% endif %}
+                {{ msi_block_render('content_top', page) }}
                 {{ block('page_content') }}
+                {{ msi_block_render('content_bottom', page) }}
             </div>
-            <div id="footer" class="box">
-                <span class="pull-right">{{ block('social') }} </span>
+            <div id="footer">
+                <span class="pull-right">{{ block('social') }}</span>
                 &copy; {{ 'now'|date('Y') }} {{ block('brand') }}. Tous droits réservés.
                 <div class="clearfix"></div>
             </div>
