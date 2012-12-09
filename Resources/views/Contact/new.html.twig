@@ -1,0 +1,9 @@
+{% set template = page.template ?: 'MsiPaintBundle::layout.html.twig' %}
+{% extends template %}
+
+{% block content %}
+    <form novalidate action="{{ path('msi_paint_contact_new') }}" method="POST">
+        {{ form_widget(form) }}
+        <button class="btn" type="submit">{{ 'Send'|trans }}</button>
+    </form>
+{% endblock content %}

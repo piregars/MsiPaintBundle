@@ -13,7 +13,7 @@ class RequestListener
         $request = $event->getRequest();
         if ($event->getRequestType() === HttpKernelInterface::MASTER_REQUEST) {
             if (!$request->getSession()->has('count')) {
-                $file = fopen($_SERVER['DOCUMENT_ROOT'].'/counter.txt', 'r+');
+                $file = fopen($_SERVER['DOCUMENT_ROOT'].'/counter.txt', 'a+');
                 $count = fgets($file);
                 $count = intval($count) + 1;
                 fseek($file, 0);
@@ -21,7 +21,7 @@ class RequestListener
                 fclose($file);
                 $request->getSession()->set('count', $count);
             } else {
-                $request->getSession()->set('count', fgets(fopen($_SERVER['DOCUMENT_ROOT'].'/counter.txt', 'r+')));
+                $request->getSession()->set('count', fgets(fopen($_SERVER['DOCUMENT_ROOT'].'/counter.txt', 'a+')));
             }
         }
     }

@@ -8,6 +8,12 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest}
 
+    # Form Handler
+    msi_paint.contact_form_handler:
+        class: Msi\Bundle\PaintBundle\Form\Handler\ContactFormHandler
+        arguments: [ @request, @templating, @mailer ]
+        scope: request
+
     # Gallery
     msi_paint_gallery_admin:
         class: Msi\Bundle\PaintBundle\Admin\GalleryAdmin
