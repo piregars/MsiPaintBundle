@@ -1,7 +1,3 @@
-msi_paint_gallery_index:
-    pattern:  /galeries
-    defaults: { _controller: MsiPaintBundle:Gallery:index }
-
 msi_paint_artwork_index:
     pattern:  /galeries/{slug}/oeuvres
     defaults: { _controller: MsiPaintBundle:Artwork:index }
