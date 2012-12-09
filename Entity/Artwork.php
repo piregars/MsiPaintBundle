@@ -23,6 +23,11 @@ class Artwork implements FileInterface
     /**
      * @ORM\Column(type="string", nullable=true)
      */
+    protected $code;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
     protected $title;
 
     /**
@@ -41,9 +46,14 @@ class Artwork implements FileInterface
     protected $year;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $price;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $sold;
 
     /**
      * @ORM\Column(type="string")
@@ -85,6 +95,7 @@ class Artwork implements FileInterface
         $this->updatedAt = new \DateTime();
         $this->position = 1;
         $this->published = false;
+        $this->sold = false;
     }
 
     public function getPath()
@@ -262,6 +273,30 @@ class Artwork implements FileInterface
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getSold()
+    {
+        return $this->sold;
+    }
+
+    public function setSold($sold)
+    {
+        $this->sold = $sold;
 
         return $this;
     }

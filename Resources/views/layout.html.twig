@@ -41,6 +41,7 @@
                 {{ knp_menu_render('MsiPaintBundle:MenuBuilder:mainMenu', {'allow_safe_labels': true, 'depth': 3, 'currentClass': 'active'}) }}
                 <p>{{ app.request.session.get('count')|number_format }} visites</p>
                 <div id="google_translate_element" style="margin-bottom:10px;height:26px;"></div>
+                <p><img src="{{ asset('bundles/msipaint/img/paypal.png') }}" alt="0"></p>
             </div>
             {{ msi_block_render('sidebar_bottom', page) }}
         </div>
@@ -51,9 +52,29 @@
                 {{ msi_block_render('content_top', page) }}
                 {{ block('page_content') }}
                 {{ msi_block_render('content_bottom', page) }}
+                {% if page.home == true %}
+                <p style="margin-left: 150px;">
+                    <img class="pull-left img-polaroid" style="margin-right:35px;margin-bottom: 10px;" src="http://placehold.it/150x150" alt="0">
+                    <strong>Pauline Veilleux</strong>
+                    <br>
+                    358 Darveau
+                    <br>
+                    Longueuil, Québec, Canada
+                    <br>
+                    J4L 2T8
+                    <br>
+                    Tél : (450) 800-1746
+                    <br>
+                    Email : <a target="_blank" href="mailto:pauline.veilleux@gmail.com">pauline.veilleux@gmail.com</a>
+                    <br>
+                    Skype : pauline.veilleux46
+                    <div class="clearfix"></div>
+                </p>
+                {% endif %}
+                <div class="clearfix"></div>
             </div>
             <div id="footer">
-                <span class="pull-right">{{ block('social') }}</span>
+                <span style="margin-right:10px;">{{ block('social') }}</span>
                 &copy; {{ 'now'|date('Y') }} {{ block('brand') }}. Tous droits réservés.
                 <div class="clearfix"></div>
             </div>

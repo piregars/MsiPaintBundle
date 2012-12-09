@@ -25,8 +25,11 @@ class SliderAdmin extends Admin
 
     public function buildForm(FormBuilder $builder)
     {
+        if (!$this->getObject()->getId()) {
+            $builder->add('name');
+        }
+
         $builder
-            ->add('name')
             ->add('pauseTime', 'integer', array('attr' => array(
                 'data-help' => 'En millième de seconde. Par défaut : 3000.',
             )))

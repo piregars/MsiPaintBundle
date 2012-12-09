@@ -2,3 +2,6 @@ Msi\Bundle\PaintBundle\Entity\GalleryTranslation:
     properties:
         name:
             - NotBlank: ~
+Msi\Bundle\PaintBundle\Entity\Artwork:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: code

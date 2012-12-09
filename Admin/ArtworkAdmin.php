@@ -21,11 +21,14 @@ class ArtworkAdmin extends Admin
     {
         $builder
             ->add('file', 'file', array('data_class' => null))
+            ->add('published')
+            ->add('code')
             ->add('title')
             ->add('size')
             ->add('medium')
             ->add('year')
             ->add('price')
+            ->add('sold')
         ;
     }
 }

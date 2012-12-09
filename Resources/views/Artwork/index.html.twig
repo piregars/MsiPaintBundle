@@ -9,10 +9,11 @@
     <div class="span4">
         <div class="thumbnail" style="margin-bottom:20px;">
             <a class="group1" href="{{ artwork.pathname }}"><img src="{{ artwork.pathname('t_') }}" alt=""></a>
-            {% if artwork.title or artwork.size or artwork.medium or artwork.year or artwork.price %}
             <div class="caption" style="padding-bottom:5px;">
+                {% if artwork.code %}<strong style="color:#7109aa;">{{ artwork.code }}</strong>{% endif %}
+                <strong class="text-info">{{ block('brand') }}</strong><br>
                 {% if artwork.title %}
-                    <strong>{{ artwork.title }}</strong><br>
+                    {{ artwork.title }}<br>
                 {% endif %}
                 {% if artwork.size %}
                     {{ artwork.size }}<br>
@@ -24,10 +25,12 @@
                     {{ artwork.year }}<br>
                 {% endif %}
                 {% if artwork.price %}
-                    <strong>{{ artwork.price }}</strong>
+                    <strong class="text-error">
+                        {% if artwork.sold %}<span class="pull-right">{{ 'Sold'|trans }}</span>{% endif %}
+                        {{ artwork.price }} $
+                    </strong>
                 {% endif %}
             </div>
-            {% endif %}
         </div>
     </div>
     {% if loop.index == artworks|length or loop.index % 3 == 0 %}

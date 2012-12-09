@@ -7,4 +7,10 @@ entity:
 Pausetime: Temps de pause
 Slidespeed: Vitesse de transition
 
+Size: Format
+Medium: Médium
+Year: Année
+Price: Prix
+Sold: Vendu
+
 Send: Envoyer

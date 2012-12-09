@@ -80,7 +80,7 @@ class Slide implements FileInterface
     public function processFile(\SplFileInfo $file)
     {
         $cutter = new Cutter();
-        $cutter->setFile($file)->resize(300, 300)->save();
+        $cutter->setFile($file)->resize(500, 300)->save();
     }
 
     public function getFile()
