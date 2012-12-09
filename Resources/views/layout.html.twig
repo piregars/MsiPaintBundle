@@ -37,10 +37,10 @@
         {# Sidebar #}
         <div class="span3">
             {{ msi_block_render('sidebar_top', page) }}
-            <div id="sidebar">
+            <div id="sidebar" data-spy="affix" data-offset-top="0">
                 {{ knp_menu_render('MsiPaintBundle:MenuBuilder:mainMenu', {'allow_safe_labels': true, 'depth': 3, 'currentClass': 'active'}) }}
                 <p>{{ app.request.session.get('count')|number_format }} visites</p>
-                <div id="google_translate_element" style="margin-bottom:10px;"></div>
+                <div id="google_translate_element" style="margin-bottom:10px;height:26px;"></div>
             </div>
             {{ msi_block_render('sidebar_bottom', page) }}
         </div>

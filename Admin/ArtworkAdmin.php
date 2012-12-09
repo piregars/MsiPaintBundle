@@ -20,7 +20,7 @@ class ArtworkAdmin extends Admin
     public function buildForm(FormBuilder $builder)
     {
         $builder
-            ->add('file', 'file')
+            ->add('file', 'file', array('data_class' => null))
             ->add('title')
             ->add('size')
             ->add('medium')

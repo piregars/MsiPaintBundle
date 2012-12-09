@@ -1,0 +1,4 @@
+Msi\Bundle\PaintBundle\Entity\GalleryTranslation:
+    properties:
+        name:
+            - NotBlank: ~
