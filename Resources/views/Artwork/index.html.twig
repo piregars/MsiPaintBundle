@@ -29,6 +29,17 @@
                         {% if artwork.sold %}<span class="pull-right">{{ 'Sold'|trans }}</span>{% endif %}
                         {{ artwork.price }} $
                     </strong>
+                    {% if artwork.sold == false %}
+                    <form style="margin:5px auto 0;text-align:center;" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="{{ block('email') }}">
+                        <input type="hidden" name="currency_code" value="CAD">
+                        <input type="hidden" name="item_name" value="{{ artwork.title }}">
+                        <input type="hidden" name="item_number" value="{{ artwork.code }}">
+                        <input type="hidden" name="amount" value="{{ artwork.price }}">
+                        <input type="image" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                    </form>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>
