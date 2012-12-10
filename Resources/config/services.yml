@@ -14,6 +14,12 @@ services:
         arguments: [ @request, @templating ]
         scope: request
 
+    # Twig Extension
+    msi_paint.paint.twig.extension:
+        class: Msi\Bundle\PaintBundle\Twig\Extension\PaintExtension
+        tags:
+            - { name: twig.extension }
+
     # Gallery
     msi_paint_gallery_admin:
         class: Msi\Bundle\PaintBundle\Admin\GalleryAdmin
