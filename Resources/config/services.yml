@@ -11,7 +11,7 @@ services:
     # Form Handler
     msi_paint.contact_form_handler:
         class: Msi\Bundle\PaintBundle\Form\Handler\ContactFormHandler
-        arguments: [ @request, @templating, @mailer ]
+        arguments: [ @request, @templating ]
         scope: request
 
     # Gallery

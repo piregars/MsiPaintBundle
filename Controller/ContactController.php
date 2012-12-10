@@ -15,6 +15,14 @@ class ContactController extends ContainerAware
         $form = $this->container->get('form.factory')->create(new ContactType());
 
         if ($this->container->get('msi_paint.contact_form_handler')->process($form)) {
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Formulaire de contact')
+                ->setFrom('noreply@paulineveilleux.com')
+                ->setTo('pauline.veilleux@gmail.com')
+                ->setBody($this->container->get('templating')->render('MsiPaintBundle:Contact:email.html.twig', array('form' => $form->getData())), 'text/html')
+            ;
+            $this->container->get('mailer')->send($message);
+
             return new RedirectResponse($this->container->get('router')->generate('msi_paint_contact_new'));
         }
 
