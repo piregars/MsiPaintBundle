@@ -5,13 +5,13 @@ namespace Msi\Bundle\PaintBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Msi\Bundle\CmfBundle\Tools\Cutter;
-use Msi\Bundle\CmfBundle\Model\FileInterface;
+use Msi\Bundle\CmfBundle\Entity\UploadableInterface;
 
 /**
  * @ORM\Table(name="paint_artwork")
  * @ORM\Entity
  */
-class Artwork implements FileInterface
+class Artwork implements UploadableInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -75,8 +75,6 @@ class Artwork implements FileInterface
      */
     protected $gallery;
 
-    protected $uploadDir = 'artworks';
-
     protected $file;
 
     /**
@@ -98,14 +96,19 @@ class Artwork implements FileInterface
         $this->sold = false;
     }
 
+    public function getUploadDir()
+    {
+        return 'artworks';
+    }
+
     public function getPath()
     {
-        return $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$this->uploadDir;
+        return $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$this->getUploadDir();
     }
 
     public function getPathname($prefix = '')
     {
-        return '/uploads/'.$this->uploadDir.'/'.$prefix.$this->filename;
+        return '/uploads/'.$this->getUploadDir().'/'.$prefix.$this->filename;
     }
 
     public function getAllowedExt()

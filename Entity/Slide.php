@@ -5,13 +5,13 @@ namespace Msi\Bundle\PaintBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Msi\Bundle\CmfBundle\Tools\Cutter;
-use Msi\Bundle\CmfBundle\Model\FileInterface;
+use Msi\Bundle\CmfBundle\Entity\UploadableInterface;
 
 /**
  * @ORM\Table(name="paint_slide")
  * @ORM\Entity
  */
-class Slide implements FileInterface
+class Slide implements UploadableInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -40,8 +40,6 @@ class Slide implements FileInterface
      */
     protected $slider;
 
-    protected $uploadDir = 'slides';
-
     protected $file;
 
     /**
@@ -60,6 +58,11 @@ class Slide implements FileInterface
         $this->updatedAt = new \DateTime();
         $this->position = 1;
         $this->published = false;
+    }
+
+    public function getUploadDir()
+    {
+        return 'slides';
     }
 
     public function getPath()

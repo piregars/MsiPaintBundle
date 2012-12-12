@@ -1,7 +1,7 @@
 {% extends 'MsiCmfBundle:Page:layout.html.twig' %}
 
 {% block css %}
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('bundles/msipaint/css/paint.css') }}">
 {{ parent() }}
 {% endblock css %}
@@ -9,7 +9,7 @@
 {% block js %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 {{ parent() }}
 {{ msi_block_render('js', page) }}
 {# Google Translate #}
@@ -39,9 +39,6 @@
             {{ msi_block_render('sidebar_top', page) }}
             <div id="sidebar" data-spy="affix" data-offset-top="0">
                 {{ knp_menu_render('MsiPaintBundle:MenuBuilder:mainMenu', {'allow_safe_labels': true, 'depth': 3, 'currentClass': 'active'}) }}
-                <p>{{ numberformat(app.request.session.get('count')) }}</p>
-                <div id="google_translate_element" style="margin-bottom:10px;height:26px;"></div>
-                <p><img src="{{ asset('bundles/msipaint/img/paypal.png') }}" alt="0"></p>
             </div>
             {{ msi_block_render('sidebar_bottom', page) }}
         </div>
